@@ -38,7 +38,6 @@ task copyResToReleaseClasses(type: Copy){
 }
 preBuild.dependsOn(copyResToDebugClasses)
 preBuild.dependsOn(copyResToReleaseClasses)
-
 dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
     def dataTestDependencies = rootProject.ext.dataTestDependencies
@@ -50,6 +49,9 @@ dependencies {
     compile dataDependencies.retrofit
     compile dataDependencies.retrofitGson
     compile dataDependencies.retrofitRxJava2
+    compile dataDependencies.timber
+    compile dataDependencies.retrofitLogging
+
 
     testCompile dataTestDependencies.junit
     testCompile dataTestDependencies.mockito

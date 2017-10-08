@@ -9,10 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.activatenow.presentation.dependency.component.FragmentInjector;
+import com.activatenow.presentation.dependency.component.ViewInjector;
 import com.activatenow.presentation.presenter.BasePresenter;
 import com.activatenow.presentation.view.BaseView;
-import com.activatenow.presentation.view.activity.base.BaseActivity;
 import com.activatenow.presentation.view.activity.base.CleanActivity;
 
 import butterknife.ButterKnife;
@@ -100,7 +99,7 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         ((CleanActivity)getActivity()).closeAndDisplayLogin();
     }
 
-    protected FragmentInjector getFragmentInjector() {
-        return ((CleanActivity)getActivity()).getFragmentInjector();
+    protected ViewInjector getViewInjector() {
+        return ((CleanActivity)getActivity()).getViewInjector();
     }
 }

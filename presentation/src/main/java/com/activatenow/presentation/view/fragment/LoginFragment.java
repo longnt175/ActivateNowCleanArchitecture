@@ -22,7 +22,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
 
     @Override
     protected void callInjection() {
-        this.getFragmentInjector().inject(this);
+        this.getViewInjector().inject(this);
     }
 
     @Override

@@ -17,7 +17,7 @@ import dagger.Provides;
 @Module
 public class ApplicationModule {
 
-    private static final String SHARED_PACKAGE = "base_shared_preferences";
+    private static final String SHARED_PACKAGE = "activate_shared_references";
 
     private final BaseApplication baseApplication;
 

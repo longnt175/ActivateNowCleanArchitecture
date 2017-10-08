@@ -1,5 +1,7 @@
 package com.activatenow.data.net;
 
+import com.activatenow.data.net.object.request.LoginUserRequest;
+import com.activatenow.data.net.object.response.UserResponse;
 import com.activatenow.data.net.wrapper.UserWrapper;
 import com.activatenow.domain.entity.MessageEntity;
 import com.activatenow.domain.entity.UserEntity;
@@ -15,9 +17,8 @@ import retrofit2.http.POST;
 
 public interface RestApi {
 
-    String URL_BASE = "http://192.168.0.10:3000";
-    int API_VERSION = 1;
-    String VERSION_HEADER = "application/vnd.railsapibase.v" + API_VERSION;
+    String ACCEPT = "application/json";
+    String URL_BASE = "https://demo.cqcommand.com/";
 
     @POST("/users")
     Observable<Response<UserEntity>> createUser(@Body UserWrapper userWrapper);
@@ -29,8 +30,8 @@ public interface RestApi {
     Observable<Response<MessageEntity>> resetPassword(@Header("Authorization") String token,
                                                       @Body UserWrapper userWrapper);
 
-    @POST("/users/login")
-    Observable<Response<UserEntity>> doLogin(@Body UserWrapper userWrapper);
+    @POST("api/login/CheckUser")
+    Observable<Response<UserResponse>> doLogin(@Body LoginUserRequest loginUserRequest);
 
     @DELETE("/users/logout")
     Observable<Response<Void>> doLogout(@Header("Authorization") String token);
@@ -38,4 +39,12 @@ public interface RestApi {
     @GET("/versions/state")
     Observable<Response<VersionEntity>> checkVersionExpiration(
                                                             @Header("Authorization") String token);
+//    @POST("userregister")
+//    Observable<Response<UserResponse>> createUser(@Body UserLoginModel userWrapper);
+//
+//    @POST("/users/reset_password")
+//    Observable<Response<MessageEntity>> resetPassword(@Body UserLoginModel userWrapper);
+//
+//    @POST("userlogin")
+//    Observable<Response<UserResponse>> doLogin(@Body UserLoginModel userLoginModel);
 }

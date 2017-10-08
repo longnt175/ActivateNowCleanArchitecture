@@ -11,13 +11,13 @@ import android.widget.Toast;
 import com.activatenow.data.net.error.RestApiErrorException;
 import com.activatenow.presentation.BaseApplication;
 import com.activatenow.presentation.R;
-import com.activatenow.presentation.dependency.component.FragmentInjector;
+import com.activatenow.presentation.dependency.component.ViewInjector;
 import com.activatenow.presentation.view.BaseView;
 import com.activatenow.presentation.view.activity.LoginActivity;
 
 public abstract class CleanActivity extends BaseActivity implements BaseView {
 
-    private FragmentInjector fragmentInjector;
+    private ViewInjector viewInjector;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,13 +25,13 @@ public abstract class CleanActivity extends BaseActivity implements BaseView {
         super.onCreate(savedInstanceState);
     }
 
-    public FragmentInjector getFragmentInjector() {
-        return this.fragmentInjector;
+    public ViewInjector getViewInjector() {
+        return this.viewInjector;
     }
 
     private void initializeActivityComponent() {
-        if (this.fragmentInjector == null) {
-            this.fragmentInjector = ((BaseApplication)getApplication()).getFragmentInjector();
+        if (this.viewInjector == null) {
+            this.viewInjector = ((BaseApplication)getApplication()).getViewInjector();
         }
     }
 

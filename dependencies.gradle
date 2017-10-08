@@ -3,7 +3,6 @@ allprojects {
         jcenter()
     }
 }
-
 ext {
     //Android
     appVersionCode = 1
@@ -15,14 +14,16 @@ ext {
     androidSupportVersion = '23.2.1'
 
     //Libraries
-    daggerVersion = '2.8'
+    daggerVersion = '2.11'
     butterKnifeVersion = '7.0.1'
-    rxJavaVersion = '2.0.2'
+    rxJavaVersion = '2.1.4'
     rxAndroidVersion = '2.0.1'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
-    retrofitVersion = '2.1.0'
+    retrofitVersion = '2.3.0'
+    retrofitLoggingVersion = '3.9.0'
     retrofitRxJava2AdapterVersion = '1.0.0'
+    timberVersion = '4.5.1'
 
     //Testing
     jUnitVersion = '4.10'
@@ -39,6 +40,7 @@ ext {
             retrofitRxJava:     "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+
     ]
 
     domainTestDependencies = [
@@ -52,7 +54,9 @@ ext {
             retrofitGson:       "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitRxJava2:    "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retrofitRxJava2AdapterVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            timber:             "com.jakewharton.timber:timber:${timberVersion}",
+            retrofitLogging:    "com.squareup.okhttp3:logging-interceptor:${retrofitLoggingVersion}"
     ]
 
     dataTestDependencies = [
@@ -71,7 +75,9 @@ ext {
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             androidCompatv7:    "com.android.support:appcompat-v7:${androidSupportVersion}",
             androidSupportv4:   "com.android.support:support-v4:${androidSupportVersion}",
-            androidDesign:      "com.android.support:design:${androidSupportVersion}"
+            androidDesign:      "com.android.support:design:${androidSupportVersion}",
+            timber:             "com.jakewharton.timber:timber:${timberVersion}",
+            retrofitLogging:    "com.squareup.okhttp3:logging-interceptor:${retrofitLoggingVersion}"
     ]
     presentationTestDependencies = [
             junit:              "junit:junit:${jUnitVersion}",

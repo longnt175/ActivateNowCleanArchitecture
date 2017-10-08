@@ -4,7 +4,6 @@ import com.activatenow.presentation.R;
 import com.activatenow.presentation.presenter.BasePresenter;
 import com.activatenow.presentation.presenter.SettingsPresenter;
 import com.activatenow.presentation.view.SettingsView;
-import com.activatenow.presentation.view.activity.base.BaseActivity;
 
 import javax.inject.Inject;
 
@@ -16,7 +15,7 @@ public class SettingsFragment extends BaseFragment implements SettingsView {
 
     @Override
     protected void callInjection() {
-        this.getFragmentInjector().inject(this);
+        this.getViewInjector().inject(this);
     }
 
     @Override

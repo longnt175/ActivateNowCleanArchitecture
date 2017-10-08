@@ -6,7 +6,6 @@ import com.activatenow.presentation.R;
 import com.activatenow.presentation.presenter.BasePresenter;
 import com.activatenow.presentation.presenter.RegisterPresenter;
 import com.activatenow.presentation.view.RegisterView;
-import com.activatenow.presentation.view.activity.base.BaseActivity;
 
 import javax.inject.Inject;
 
@@ -24,7 +23,7 @@ public class RegisterFragment extends BaseFragment implements RegisterView {
 
     @Override
     protected void callInjection() {
-        this.getFragmentInjector().inject(this);
+        this.getViewInjector().inject(this);
     }
 
     @Override

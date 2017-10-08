@@ -7,6 +7,7 @@ android {
     buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId 'com.activatenow.presentation'
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
@@ -53,6 +54,8 @@ dependencies {
     compile presentationDependencies.javaxAnnotation
     compile presentationDependencies.rxJava
     compile presentationDependencies.rxAndroid
+    compile presentationDependencies.timber
+    compile presentationDependencies.retrofitLogging
 
     testCompile presentationTestDependencies.junit
     testCompile presentationTestDependencies.mockito

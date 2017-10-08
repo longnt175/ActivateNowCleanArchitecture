@@ -2,10 +2,11 @@ package com.activatenow.presentation;
 
 import android.app.Application;
 
+
 import com.activatenow.presentation.dependency.component.ApplicationComponent;
 import com.activatenow.presentation.dependency.component.DaggerActivityComponent;
 import com.activatenow.presentation.dependency.component.DaggerApplicationComponent;
-import com.activatenow.presentation.dependency.component.FragmentInjector;
+import com.activatenow.presentation.dependency.component.ViewInjector;
 import com.activatenow.presentation.dependency.module.ApplicationModule;
 
 public class BaseApplication extends Application {
@@ -28,7 +29,7 @@ public class BaseApplication extends Application {
         return this.applicationComponent;
     }
 
-    public FragmentInjector getFragmentInjector() {
+    public ViewInjector getViewInjector() {
         return DaggerActivityComponent.builder()
                 .applicationComponent(this.applicationComponent).build();
     }

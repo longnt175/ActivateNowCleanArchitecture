@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.activatenow.presentation.R;
-import com.activatenow.presentation.view.activity.base.BaseActivity;
 import com.activatenow.presentation.view.activity.base.CleanActivity;
 import com.activatenow.presentation.view.fragment.RegisterFragment;
 

@@ -8,7 +8,6 @@ import com.activatenow.domain.executor.PostExecutionThread;
 import com.activatenow.domain.executor.ThreadExecutor;
 import com.activatenow.domain.repository.SessionRepository;
 import com.activatenow.domain.repository.UserRepository;
-import com.activatenow.domain.repository.VersionRepository;
 import com.activatenow.presentation.dependency.module.ApplicationModule;
 import com.activatenow.presentation.dependency.module.DataModule;
 
@@ -28,6 +27,4 @@ public interface ApplicationComponent {
     SessionRepository sessionRepository();
     RestApi restApi();
     UserRepository userRepository();
-    VersionRepository versionRepository();
-
 }

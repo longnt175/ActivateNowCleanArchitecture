@@ -4,20 +4,13 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
-import com.activatenow.data.net.error.RestApiErrorException;
-import com.activatenow.presentation.BaseApplication;
 import com.activatenow.presentation.R;
-import com.activatenow.presentation.dependency.component.FragmentInjector;
-import com.activatenow.presentation.view.BaseView;
-import com.activatenow.presentation.view.activity.LoginActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,12 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     getSupportActionBar().setDisplayShowHomeEnabled(true);
                 }
-                toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
+                toolbar.setNavigationOnClickListener(v -> finish());
             }
         } else toolbar.setVisibility(View.GONE);
     }

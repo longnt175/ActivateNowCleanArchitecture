@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_register"
         android:gravity="center"
-        android:textSize="@dimen/textsize_small"
+        android:textSize="@dimen/text_size_small"
         android:text="@string/textview_register_terms"/>
 
 </RelativeLayout>

@@ -25,7 +25,7 @@ public class ResetPasswordFragment extends BaseFragment implements ResetPassword
 
     @Override
     protected void callInjection() {
-        this.getFragmentInjector().inject(this);
+        this.getViewInjector().inject(this);
     }
 
     @Override

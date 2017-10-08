@@ -8,11 +8,14 @@ import com.activatenow.domain.repository.SessionRepository;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.Observable;
+
 @Singleton
 public class SessionDataRepository implements SessionRepository {
 
     private static final String EMAIL = "email";
     private static final String AUTH_TOKEN = "auth_token";
+    private static final String PIN = "pin";
 
     private final SharedPreferences sharedPreferences;
 
@@ -45,5 +48,16 @@ public class SessionDataRepository implements SessionRepository {
         editor.remove(EMAIL);
         editor.remove(AUTH_TOKEN);
         editor.apply();
+    }
+
+    @Override
+    public Observable<Boolean> hasLoggedIn() {
+        if (sharedPreferences.contains(EMAIL) && sharedPreferences.contains(AUTH_TOKEN)) {
+            UserEntity user = new UserEntity(sharedPreferences.getString(EMAIL, null));
+            user.setAuthToken(sharedPreferences.getString(AUTH_TOKEN, null));
+            return  Observable.just(true);
+        }
+        return  Observable.just(false);
+
     }
 }

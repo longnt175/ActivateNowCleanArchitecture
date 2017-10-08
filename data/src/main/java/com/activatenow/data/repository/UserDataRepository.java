@@ -1,6 +1,8 @@
 package com.activatenow.data.repository;
 
 import com.activatenow.data.net.RestApi;
+import com.activatenow.data.net.object.request.LoginUserRequest;
+import com.activatenow.data.net.object.response.UserResponse;
 import com.activatenow.data.net.wrapper.UserWrapper;
 import com.activatenow.domain.entity.MessageEntity;
 import com.activatenow.domain.entity.UserEntity;
@@ -28,7 +30,7 @@ public class UserDataRepository extends RestApiRepository implements UserReposit
     public Observable<UserEntity> createUser(UserEntity user) {
         return this.restApi.createUser(new UserWrapper(user))
                 .map(userEntityResponse -> {
-                    handleResponseError(userEntityResponse);
+//                    handleResponseError(userEntityResponse);
                     return userEntityResponse.body();
                 });
     }
@@ -37,7 +39,7 @@ public class UserDataRepository extends RestApiRepository implements UserReposit
     public Observable<VoidEntity> deleteUser(final UserEntity user) {
         return this.restApi.deleteUser(user.getAuthToken())
                 .map(voidResponse -> {
-                    handleResponseError(voidResponse);
+//                    handleResponseError(voidResponse);
                     return new VoidEntity();
                 });
     }
@@ -46,16 +48,16 @@ public class UserDataRepository extends RestApiRepository implements UserReposit
     public Observable<MessageEntity> resetPassword(UserEntity user) {
         return this.restApi.resetPassword(user.getAuthToken(), new UserWrapper(user))
                 .map(messageEntityResponse -> {
-                    handleResponseError(messageEntityResponse);
+//                    handleResponseError(messageEntityResponse);
                     return messageEntityResponse.body();
                 });
     }
 
     @Override
-    public Observable<UserEntity> loginUser(UserEntity user) {
-        return this.restApi.doLogin(new UserWrapper(user))
+    public Observable<UserResponse> loginUser(LoginUserRequest loginUserRequest) {
+        return this.restApi.doLogin(loginUserRequest)
                 .map(userEntityResponse -> {
-                    handleResponseError(userEntityResponse);
+//                    handleResponseError(userEntityResponse);
                     return userEntityResponse.body();
                 });
     }
@@ -64,7 +66,7 @@ public class UserDataRepository extends RestApiRepository implements UserReposit
     public Observable<VoidEntity> logoutUser(UserEntity user) {
         return this.restApi.doLogout(user.getAuthToken())
                 .map(voidResponse -> {
-                    handleResponseError(voidResponse);
+//                    handleResponseError(voidResponse);
                     return new VoidEntity();
                 });
     }
